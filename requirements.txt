@@ -16,7 +16,6 @@ numpy==1.20.1
 iopath==0.1.8
 av==8.0.3
 black==21.4b2
-caffe2==0.8.1
 cityscapesscripts==2.2.0
 dataclasses==0.8
 hydra==2.5
