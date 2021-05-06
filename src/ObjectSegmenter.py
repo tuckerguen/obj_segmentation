@@ -40,8 +40,9 @@ class ObjectSegmenter:
         im = np.frombuffer(data.data, dtype=np.uint8).reshape(data.height, data.width, -1)
         cfg = self.get_model_cfg()
         predictor = DefaultPredictor(cfg)
-        # Crop out baxter
-        im = im[:y_crop_idx, :]
+        # Crop out bottom of image (baxter specific)
+        if y_crop_idx <= im.shape[0]:
+            im = im[:y_crop_idx, :]
         outputs = predictor(im)
         return outputs, im
 
